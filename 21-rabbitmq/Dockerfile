@@ -18,7 +18,9 @@ RUN set -xe \
 RUN mix local.hex --force
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends maven rsync unzip zip
+    && apt-get install -y --no-install-recommends
+       && maven rsync unzip zip \
+       && xxd netcat
 
 RUN mkdir -p /opt/rabbitmq && \
     cd /opt/rabbitmq && \
